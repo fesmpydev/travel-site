@@ -1,6 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  BrowserRouter,
+} from "react-router-dom";
 import Layout from "./Layout.tsx";
 import Home from "./routes/Home.tsx";
 import About from "./routes/About.tsx";
@@ -42,9 +46,11 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Provider store={store}>
-      <Layout>
-        <RouterProvider router={router} fallbackElement />
-      </Layout>
+      <BrowserRouter basename="/travel-site">
+        <Layout>
+          <RouterProvider router={router} />
+        </Layout>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );
